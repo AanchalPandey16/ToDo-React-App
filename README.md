@@ -26,7 +26,9 @@ A simple task manager app built with React Native. The app allows users to add t
 ### Sample Image:
 
 #### Main Screen:
-<img src="![image](https://github.com/user-attachments/assets/0093d4dc-4075-4606-8366-604baca73ea5" width="200"/>
+<img src="https://github.com/user-attachments/assets/55133ded-38b1-48ff-8d49-09e4b45e6bda" width="300"/>
+
+
 
 
 
