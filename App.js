@@ -11,11 +11,39 @@ import {
   Keyboard,
   SafeAreaView,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Task from "./components/task";
 
 export default function App() {
   const [task, setTask] = useState();
   const [taskList, setTaskList] = useState([]);
+
+  const loadTasks = async () => {
+    try {
+      const storedTasks = await AsyncStorage.getItem("tasks");
+      if (storedTasks) {
+        setTaskList(JSON.parse(storedTasks));
+      }
+    } catch (error) {
+      console.log("Error loading tasks:", error);
+    }
+  };
+
+  const saveTasks = async (tasks) => {
+    try {
+      await AsyncStorage.setItem("tasks", JSON.stringify(tasks));
+    } catch (error) {
+      console.log("Error saving tasks:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadTasks();
+  }, []);
+
+  useEffect(() => {
+    saveTasks(taskList);
+  }, [taskList]);
 
   const handleAddTask = () => {
     Keyboard.dismiss();
@@ -40,7 +68,10 @@ export default function App() {
           <ScrollView style={styles.scrollView}>
             <View style={styles.items}>
               {taskList.map((item, index) => (
-                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => completeTask(index)}
+                >
                   <Task text={item} />
                 </TouchableOpacity>
               ))}
@@ -82,7 +113,7 @@ const styles = StyleSheet.create({
   taskwrapper: {
     paddingTop: 15,
     paddingHorizontal: 20,
-    flex: 1, 
+    flex: 1,
   },
   title: {
     fontSize: 28,
@@ -90,7 +121,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   scrollView: {
-    flex: 1, 
+    flex: 1,
   },
   items: {
     marginBottom: 20,
@@ -98,7 +129,7 @@ const styles = StyleSheet.create({
   },
   line: {
     height: 1,
-    backgroundColor: "#C0C0C0", 
+    backgroundColor: "#C0C0C0",
     width: "100%",
   },
   writeTaskWrapper: {
@@ -108,7 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    backgroundColor: "#C0C0C0", 
+    backgroundColor: "#C0C0C0",
     paddingVertical: 15,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -126,7 +157,7 @@ const styles = StyleSheet.create({
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: "lightblue", 
+    backgroundColor: "lightblue",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
@@ -134,7 +165,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   addText: {
-    color: "#fff", 
+    color: "#fff",
     fontSize: 24,
   },
 });
