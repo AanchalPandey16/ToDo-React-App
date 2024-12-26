@@ -3,11 +3,10 @@
 A simple task manager app built with React Native. The app allows users to add tasks, mark them as completed, and delete tasks. It offers a clean and straightforward interface to manage your daily tasks efficiently.
 
 ### Features:
-- **Add new tasks** using a text input field.
-- **Mark tasks as completed** by clicking on the task.
-- **Delete completed tasks** when clicked.
-- Tasks are displayed in a list, and once marked as completed, they are removed from the task list.
-- **Cross-Platform**: Built with React Native, works on both Android and iOS.
+1. Add new tasks using a text input field.<br>
+2. Mark tasks as completed by clicking on the task.<br>
+3. Delete completed tasks when clicked.<br>
+4. Built with React Native, works on both Android and iOS.
 
 ---
 
