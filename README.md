@@ -19,15 +19,14 @@ A simple task manager app built with React Native. The app allows users to add t
 
 ### How to Use:
 1. **Add a task**: Type into the input field at the bottom of the screen and press the **+** button.
-2. **Mark a task as completed**: Click on any task to toggle the completion status. The task text will be crossed out.
-3. **Delete a task**: Long press on any completed task to delete it from the list.
+2. **Mark a task as completed**: Click on the task and it will get removed from the list.
 
 ---
 
 ### Sample Image:
 
 #### Main Screen:
-![WhatsApp Image 2024-12-26 at 22 13 10_29771fbb](https://github.com/user-attachments/assets/a2f81df5-35f3-4206-9375-55b9a7856db1)
+<img src="![image](https://github.com/user-attachments/assets/0093d4dc-4075-4606-8366-604baca73ea5" width="200"/>
 
 
 
